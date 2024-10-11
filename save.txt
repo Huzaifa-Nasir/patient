@@ -1,0 +1,49 @@
+ <div>
+        <label>Price Range: </label>
+        <input
+          type="text"
+          onChange={handlePrice}
+          value={priceRange.join(',')}
+          placeholder="Min,Max"
+          
+        />
+      </div>
+
+      {/* Location Filter */}
+      <div>
+        <label>Location: </label>
+        <select value={location} onChange={(e)=> setLocation(e.target.value)}>
+          <option value="">All</option>
+          <option value="New York">New York</option>
+          <option value="Los Angeles">Los Angeles</option>
+          <option value="Chicago">Chicago</option>
+          {/* Add more locations as needed */}
+        </select>
+      </div>
+
+      {/* Color Filter */}
+      <div>
+        <label>Color: </label>
+        <select value={color} onChange={(e)=> setColor(e.target.value)}>
+          <option value="">All</option>
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          {/* Add more colors as needed */}
+        </select>
+      </div>
+
+      {/* Search Button */}
+      <button onClick={handleFilter}>Search</button>
+
+      {/* Render Filtered Items */}
+      <div>
+        <h2>Filtered Items:</h2>
+        {filteredItems.map((item) => (
+          <div key={item.id}>
+            <p>
+              {item.name} - ${item.price} - {item.location} - {item.color}
+            </p>
+          </div>
+        ))}
+      </div>
